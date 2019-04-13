@@ -4,8 +4,12 @@ import { connect } from 'react-redux';
 
 import Nav from './Nav';
 import Home from './Home';
+
 import Campuses from './Campuses';
+import Campus from './Campus'
+
 import Students from './Students';
+import Student from './Student';
 
 import { seedStudents, seedCampuses } from '../store'
 
@@ -21,8 +25,12 @@ class Main extends Component {
                     <h1>Superhero University</h1>
                     <Route component={ Nav } />
                     <Route exact path="/" component={ Home } />
+
                     <Route exact path="/campuses" component={ Campuses } />
+                    <Route exact path="/campuses/:id" component={ Campus } />
+
                     <Route exact path="/students" component={ Students } />
+                    <Route exact path="/students/:id" component={ Student } />
                 </Fragment>
             </Router>
         )

@@ -19,11 +19,28 @@ app.get('/api/students', (req, res, next) => {
 });
 
 app.get('/api/campuses', (req, res, next) => {
-    Campus.findAll()
+    Campus.findAll({
+        include: [Student]
+    })
         .then( campuses => res.send(campuses))
         .catch(next);
 });
 
+app.get('/api/campuses/:id', (req, res, next) => {
+    Campus.findByPk(req.params.id, {
+        include: [Student]
+    })
+    .then( data => res.send(data))
+    .catch(next);
+})
+
+app.get('/api/students/:id', (req, res, next) => {
+    Student.findByPk(req.params.id, {
+        include: [Campus]
+    })
+    .then( data => res.send(data))
+    .catch(next);
+})
 
 //error
 app.use((err, req, res, next) => {

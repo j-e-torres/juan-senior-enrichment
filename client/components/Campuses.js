@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const Campuses = ({ campuses }) => {
@@ -9,7 +10,7 @@ const Campuses = ({ campuses }) => {
             campuses.map( campus => {
                 return (
                     <li key={campus.id}>
-                        {campus.name}
+                        <Link to={`/campuses/${campus.id}`}>{campus.name}</Link>
                         <br />
                         <img width="300px" src={campus.imageUrl} />
                     </li>

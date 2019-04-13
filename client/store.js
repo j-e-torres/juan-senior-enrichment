@@ -4,7 +4,10 @@ import axios from 'axios';
 
 //actions
 const GET_STUDENTS = 'GET_STUDENTS';
+const GET_STUDENT = 'GET_STUDENT';
+
 const GET_CAMPUSES = 'GET_CAMPUSES';
+const GET_CAMPUS = 'GET_CAMPUS';
 
 //action creators
 const getStudents = students => ({
@@ -12,9 +15,19 @@ const getStudents = students => ({
     students
 })
 
+const getStudent = student => ({
+    type: GET_STUDENT,
+    student
+})
+
 const getCampuses = campuses => ({
     type: GET_CAMPUSES,
     campuses
+})
+
+const getCampus = campus => ({
+    type: GET_CAMPUS,
+    campus
 })
 
 //reducers
@@ -38,9 +51,31 @@ const campuses = (state = [], action) => {
     }
 }
 
+const campus = (state = {}, action) => {
+    switch ( action.type ) {
+        case GET_CAMPUS:
+            return action.campus;
+
+        default:
+            return state;
+    }
+}
+
+const student = (state = {}, action) => {
+    switch ( action.type ) {
+        case GET_STUDENT:
+            return action.student;
+
+        default:
+            return state;
+    }
+}
+
 const reducer = combineReducers({
     campuses,
-    students
+    students,
+    campus,
+    student
 })
 
 //thunks
@@ -51,12 +86,27 @@ const seedStudents = () => {
     }
 }
 
+const seedStudent = (id) => {
+    return dispatch => {
+        return axios.get(`/api/students/${id}`)
+            .then( ({ data }) => dispatch(getStudent(data)))
+    }
+}
+
 const seedCampuses = () => {
     return dispatch => {
         return axios.get('/api/campuses')
             .then( ({ data }) => dispatch(getCampuses(data)));
     }
 }
+
+const seedCampus = (id) => {
+    return dispatch => {
+        return axios.get(`/api/campuses/${id}`)
+            .then( ({ data }) => dispatch(getCampus(data)))
+    }
+}
+
 
 //store
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
@@ -65,5 +115,7 @@ export default store;
 
 export {
     seedCampuses,
-    seedStudents
+    seedStudents,
+    seedCampus,
+    seedStudent
 }
