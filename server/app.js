@@ -70,6 +70,27 @@ app.post('/api/students', (req, res, next) => {
     .catch(next);
 })
 
+//delete one
+app.delete('/api/students/:id', (req, res, next) => {
+    Student.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then( () => res.status(204))
+    .catch(next)
+})
+
+app.delete('/api/campuses/:id', (req, res, next) => {
+    Campus.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then( () => res.status(204))
+    .catch(next)
+})
+
 //error
 app.use((err, req, res, next) => {
     console.error(err.message);
