@@ -6,12 +6,12 @@ import axios from 'axios';
 const ADD_STUDENT = 'ADD_STUDENT';
 const GET_STUDENTS = 'GET_STUDENTS';
 const GET_STUDENT = 'GET_STUDENT';
-const DELETE_STUDENT = 'DELETE_STUDENT';
+// const DELETE_STUDENT = 'DELETE_STUDENT';
 
 const ADD_CAMPUS = 'ADD_CAMPUS';
 const GET_CAMPUSES = 'GET_CAMPUSES';
 const GET_CAMPUS = 'GET_CAMPUS';
-const DELETE_CAMPUS = 'DELETE_CAMPUS';
+// const DELETE_CAMPUS = 'DELETE_CAMPUS';
 
 //action creators
 const addStudent = student => ({
@@ -43,10 +43,10 @@ const getCampus = campus => ({
     campus
 })
 
-const _deleteStudent = studentId => ({
-    type: DELETE_STUDENT,
-    studentId
-})
+// const _deleteStudent = studentId => ({
+//     type: DELETE_STUDENT,
+//     studentId
+// })
 
 //reducers
 const students = (state = [], action) => {
@@ -56,9 +56,6 @@ const students = (state = [], action) => {
 
         case ADD_STUDENT:
             return [...state, action.student];
-
-        case DELETE_STUDENT:
-            return [...state];
 
         default:
             return state;
@@ -157,7 +154,15 @@ const newStudent = (stu) => {
 const deleteStudent = (id) => {
     return dispatch => {
         return axios.delete(`/api/students/${id}`)
-            .then( () => dispatch(_deleteStudent(id)))
+            .then( () => dispatch(seedStudents()));
+    }
+}
+
+const deleteCampus = (id) => {
+
+    return dispatch => {
+        return axios.delete(`/api/campuses/${id}`)
+            .then( () => dispatch(seedCampuses()));
     }
 }
 
@@ -173,5 +178,7 @@ export {
     seedCampus,
     seedStudent,
     newCampus,
-    newStudent
+    newStudent,
+    deleteCampus,
+    deleteStudent
 }

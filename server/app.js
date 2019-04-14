@@ -77,7 +77,7 @@ app.delete('/api/students/:id', (req, res, next) => {
             id: req.params.id
         }
     })
-    .then( () => res.status(204))
+    .then( () => res.sendStatus(204))
     .catch(next)
 })
 
@@ -87,7 +87,9 @@ app.delete('/api/campuses/:id', (req, res, next) => {
             id: req.params.id
         }
     })
-    .then( () => res.status(204))
+    .then( () => {
+        res.sendStatus(204)
+    })
     .catch(next)
 })
 

@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const Students = ({ students }) => {
+import { deleteStudent } from '../store';
+
+const Students = ({ students, deleteS }) => {
 
     return (
         <ul>
@@ -13,6 +15,7 @@ const Students = ({ students }) => {
                     <Link to={`/students/${student.id}`}>
                         {student.firstName} {student.lastName}
                     </Link>
+                    <button onClick={() => deleteS(student.id) } type="submit">X</button>
                         <br />
                         <img width="300px" src={student.imageUrl} />
                     </li>
@@ -29,4 +32,10 @@ const mapStateToProps = ({ students }) => {
     }
 };
 
-export default connect(mapStateToProps)(Students);
+const mapDispatchToProps = dispatch => {
+    return {
+        deleteS: (id) => dispatch(deleteStudent(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Students);
