@@ -6,12 +6,14 @@ import Nav from './Nav';
 import Home from './Home';
 
 import Campuses from './Campuses';
-import Campus from './Campus'
+import Campus from './Campus';
+import CampusForm from './CampusForm';
 
 import Students from './Students';
 import Student from './Student';
+import StudentForm from './StudentForm';
 
-import { seedStudents, seedCampuses } from '../store'
+import { seedStudents, seedCampuses } from '../store';
 
 class Main extends Component {
     componentDidMount() {
@@ -28,9 +30,11 @@ class Main extends Component {
 
                     <Route exact path="/campuses" component={ Campuses } />
                     <Route exact path="/campuses/:id" component={ Campus } />
+                    <Route exact path="/createCampus" component={ CampusForm } />
 
                     <Route exact path="/students" component={ Students } />
                     <Route exact path="/students/:id" component={ Student } />
+                    <Route exact path="/createStudent" component={ StudentForm } />
                 </Fragment>
             </Router>
         )

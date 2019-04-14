@@ -9,9 +9,12 @@ module.exports = app;
 app.use(express.static(path.join(__dirname, '..', 'dist')))
 app.use(express.static(path.join(__dirname, '..', 'public')))
 
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
 app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, '..', 'index.html')));
 
+//get all
 app.get('/api/students', (req, res, next) => {
     Student.findAll()
         .then( students => res.send(students))
@@ -26,6 +29,7 @@ app.get('/api/campuses', (req, res, next) => {
         .catch(next);
 });
 
+//get single
 app.get('/api/campuses/:id', (req, res, next) => {
     Campus.findByPk(req.params.id, {
         include: [Student]
@@ -39,6 +43,30 @@ app.get('/api/students/:id', (req, res, next) => {
         include: [Campus]
     })
     .then( data => res.send(data))
+    .catch(next);
+})
+
+//add one
+app.post('/api/campuses', (req, res, next) => {
+    Campus.create({
+        name: req.body.name,
+        address: req.body.address,
+        imageUrl: req.body.imageUrl,
+        description: req.body.description
+    })
+    .then( campus => res.send(campus))
+    .catch(next);
+})
+
+app.post('/api/students', (req, res, next) => {
+    Student.create({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        gpa: req.body.gpa,
+        imageUrl: req.body.imageUrl,
+        email: req.body.email
+    })
+    .then( campus => res.send(campus))
     .catch(next);
 })
 

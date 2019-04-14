@@ -3,13 +3,19 @@ import thunkMiddleware from 'redux-thunk';
 import axios from 'axios';
 
 //actions
+const ADD_STUDENT = 'ADD_STUDENT';
 const GET_STUDENTS = 'GET_STUDENTS';
 const GET_STUDENT = 'GET_STUDENT';
 
+const ADD_CAMPUS = 'ADD_CAMPUS';
 const GET_CAMPUSES = 'GET_CAMPUSES';
 const GET_CAMPUS = 'GET_CAMPUS';
 
 //action creators
+const addStudent = student => ({
+    type: ADD_STUDENT,
+    student
+})
 const getStudents = students => ({
     type: GET_STUDENTS,
     students
@@ -18,6 +24,11 @@ const getStudents = students => ({
 const getStudent = student => ({
     type: GET_STUDENT,
     student
+})
+
+const addCampus = campus => ({
+    type: ADD_CAMPUS,
+    campus
 })
 
 const getCampuses = campuses => ({
@@ -36,6 +47,9 @@ const students = (state = [], action) => {
         case GET_STUDENTS:
             return action.students;
 
+        case ADD_STUDENT:
+            return [...state, action.student];
+
         default:
             return state;
     }
@@ -45,6 +59,8 @@ const campuses = (state = [], action) => {
     switch ( action.type ) {
         case GET_CAMPUSES:
             return action.campuses;
+        case ADD_CAMPUS:
+            return [...state, action.campus]
 
         default:
             return state;
@@ -107,6 +123,20 @@ const seedCampus = (id) => {
     }
 }
 
+const newCampus = (ca) => {
+    return dispatch => {
+        return axios.post('/api/campuses', ca)
+            .then( ({ data }) => dispatch(addCampus(data)))
+    }
+}
+
+const newStudent = (stu) => {
+    return dispatch => {
+        return axios.post('/api/students', stu)
+            .then( ({ data }) => dispatch(addStudent(data)))
+    }
+}
+
 
 //store
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
@@ -117,5 +147,7 @@ export {
     seedCampuses,
     seedStudents,
     seedCampus,
-    seedStudent
+    seedStudent,
+    newCampus,
+    newStudent
 }

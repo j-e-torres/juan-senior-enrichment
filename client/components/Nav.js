@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 const Navtabs = [
     {name: 'Home', path: '/'},
     {name: 'Campuses', path: '/campuses'},
-    {name: 'Students', path: '/students'}
+    {name: 'Students', path: '/students'},
+    {name: 'Add a Campus', path: '/createCampus'},
+    {name: 'Add a Student', path: '/createStudent'}
 ]
 
 const Nav = () => {
