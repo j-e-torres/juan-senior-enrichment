@@ -92,6 +92,30 @@ const syncAndSeed = () => {
                     gpa: 3.25,
                     campusId: 1
                 }),
+                Student.create({
+                    firstName: 'Damian',
+                    lastName: 'Wayne',
+                    email: 'robin@titanstower.com',
+                    imageUrl: '/heropics/damianrobin.png',
+                    gpa: 4.0,
+                    campusId: 2
+                }),
+                Student.create({
+                    firstName: 'Princess',
+                    lastName: "Koriand'r",
+                    email: 'starfire@titanstower.com',
+                    imageUrl: '/heropics/starfire.png',
+                    gpa: 3,
+                    campusId: 2
+                }),
+                Student.create({
+                    firstName: 'Rachel',
+                    lastName: 'Roth',
+                    email: 'raven@titanstower.com',
+                    imageUrl: '/heropics/raven.jpg',
+                    gpa: 3,
+                    campusId: 2
+                }),
             ])
         ]))
 

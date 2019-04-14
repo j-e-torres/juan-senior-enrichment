@@ -54,7 +54,6 @@ class CampusForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch, props) => {
-    console.log(props)
     return {
         newCampus: (camp) => dispatch(newCampus(camp)),
         history: props.history

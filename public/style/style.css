@@ -1,0 +1,65 @@
+body {
+    line-height: 1.6;
+    color: #edebf4;
+	font-family: century gothic, Verdana, Times, Arial;
+	background-color: #83677b;
+}
+
+.nav-tab {
+    display: inline;
+    padding: 10px;;
+    font-size: 2vw;
+    text-decoration: none; 
+}
+
+a {
+    color: #edebf4;
+    text-decoration: none;
+}
+a:hover {
+    background-color: #83677b;
+    /* color: blue; */
+}
+
+.navbar {
+    background-color: #501b1d;
+    border:1px solid #2e1114;
+    border-width:1px 0;
+    list-style:none;
+    text-decoration: none;
+    margin:10px;
+    padding:10px;
+    text-align:center;
+}
+
+.main-header, .home-header, .home-about {
+    font-size: 1.75vw;
+    text-align: center;
+}
+
+.home-header {
+    background-color: #64485c;
+    font-size: 2.25vw;
+}
+
+.main-header {
+    background-color: #64485c;
+    font-size: 4vw;
+}
+
+.list-item {
+    height: 65%;
+    width: 33%;
+    margin: auto;
+}
+
+.list-campus-student {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+
+/* .delete-btn {
+    float: center;
+} */

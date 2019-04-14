@@ -59,7 +59,6 @@ class StudentForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch, props) => {
-    console.log(props)
     return {
         newStudent: (camp) => dispatch(newStudent(camp)),
         history: props.history

@@ -12,19 +12,21 @@ const Navtabs = [
 
 const Nav = () => {
     return (
-        <ul>
-            {
-                Navtabs.map( tab => {
-                    return (
-                        <li key={tab.path}>
-                            <Link to={tab.path}>
-                                {tab.name}
-                            </Link>
-                        </li>
-                    )
-                })
-            }
-        </ul>
+        <div>
+            <ul className="navbar">
+                {
+                    Navtabs.map( tab => {
+                        return (
+                            <li key={tab.path} className="nav-tab">
+                                <Link to={tab.path} className="nav-link active">
+                                    {tab.name}
+                                </Link>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+        </div>
     )
 }
 

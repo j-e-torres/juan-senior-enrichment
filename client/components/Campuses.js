@@ -7,20 +7,20 @@ import { deleteCampus } from '../store';
 const Campuses = ({ campuses, deleteC }) => {
 
     return (
-        <ul>
+        <div className="list-campus-student">
         {
             campuses.map( campus => {
                 return (
-                    <li key={campus.id}>
+                    <div key={campus.id} className="list-item">
                         <Link to={`/campuses/${campus.id}`}>{campus.name}</Link>
-                        <button onClick={() => deleteC(campus.id) } type="submit">X</button>
+                        <button onClick={() => deleteC(campus.id) } className="delete-btn" type="submit">X</button>
                         <br />
-                        <img width="300px" src={campus.imageUrl} />
-                    </li>
+                        <img width="100%" src={campus.imageUrl} />
+                    </div>
                 )
             })
         }
-        </ul>
+        </div>
     )
 }
 

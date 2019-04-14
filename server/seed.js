@@ -25,7 +25,7 @@
 const campusesArr = [
     {
         name: 'Hall of Justice',
-        imageUrl: '/campuspics/Hall_of_Justice.png',
+        imageUrl: '/campuspics/Hall-of-Justice.jpg',
         address: 'One Justice Plaza, Washington, D.C.',
         description: 'One of the headquarters of the Justice League on Earth, also serves as an tourist attraction sometimes.'
     },
