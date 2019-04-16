@@ -1,33 +1,52 @@
 body {
     line-height: 1.6;
-    color: #edebf4;
-	font-family: century gothic, Verdana, Times, Arial;
-	background-color: #83677b;
+    /* color: #edebf4; */
+    /* color: #303338; */
+    color: black;
+    /* font-family: century gothic, Verdana, Times, Arial; */
+    font-family: 'Glegoo', serif;
+    /* background-color: #83677b; */
+    /* background-color: #f5f4f7; */
+    background-color: whitesmoke;
+
 }
 
 .nav-tab {
     display: inline;
-    padding: 10px;;
     font-size: 2vw;
-    text-decoration: none; 
+    text-decoration: none;
+    /* border: 1px solid #64485c;
+    border-radius: 10px;
+    margin: 5px; */
 }
 
-a {
-    color: #edebf4;
+.navbar a {
+    /* color: #e4e0f1; */
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
     text-decoration: none;
+    background-color: rgb(150, 23, 23);
+    border: 1px solid #64485c;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    font-family: 'Glegoo', serif;
+
 }
-a:hover {
+.navbar a:hover {
     background-color: #83677b;
+    /* background-color: #5724ff; */
     /* color: blue; */
 }
 
 .navbar {
-    background-color: #501b1d;
+    /* background-color: #501b1d; */
+    background-color: goldenrod;
     border:1px solid #2e1114;
     border-width:1px 0;
     list-style:none;
     text-decoration: none;
-    margin:10px;
+    margin-bottom:30px;
     padding:10px;
     text-align:center;
 }
@@ -38,20 +57,42 @@ a:hover {
 }
 
 .home-header {
-    background-color: #64485c;
+    /* background-color: #64485c; */
+    color: white;
+    font-family: 'Geostar Fill', cursive;
+    background-color: rgb(150, 23, 23);
     font-size: 2.25vw;
 }
 
 .main-header {
-    background-color: #64485c;
+    color: white;
+    /* background-color: #64485c; */
+    background-color: rgb(150, 23, 23);
     font-size: 4vw;
+    font-family: 'Geostar Fill', cursive;
+
 }
 
 .list-item {
-    height: 65%;
+    height: 75%;
     width: 33%;
     margin: auto;
+    /* border: 2px solid #501b1d; */
+    border: 2px solid goldenrod;
+    text-align: center;
+    /* background-color: #64485c; */
+    background-color: black;
+    color: white;
+
 }
+
+.list-campus-student:hover .list-item:not(:hover) {
+    opacity: .6;
+}
+
+/* .list-item:hover {
+    opacity: .75;
+} */
 
 .list-campus-student {
     display: flex;
@@ -63,3 +104,115 @@ a:hover {
 /* .delete-btn {
     float: center;
 } */
+
+.list-item a {
+    font-size: 1.5vw;
+    color: #e4e0f1;
+    border: 1px solid #83677b;
+    border-radius: 10px;
+    margin: 4px;
+    text-decoration: none;
+    /* background-color: #501b1d; */
+    background-color: goldenrod;
+    padding: 4px;
+    font-family: 'Glegoo', serif;
+
+
+}
+
+.list-item a:hover {
+    background-color: #83677b;
+}
+
+.form-container {
+    
+    text-align: center;
+    position:relative;
+    top:30px;
+}
+
+.form-container form span:before {
+    border:2px solid #4c2639;
+    width:40px;
+    height:40px;
+    color:#fff;
+    display:inline-block;
+    border-radius:50%;
+    line-height:1.6em;
+    font-size:1.5em;
+    position:relative;
+    left:-22px;
+    top:-11px;
+    background:#2F1E27;
+  }
+
+form{
+    margin-top:25px;
+    display:inline-block;
+}
+
+.form-container span{
+    /* background-color: rgb(150, 23, 23); */
+    margin-bottom:22px; 
+    display:inline-block;
+}
+
+input {
+    background-color: rgb(150, 23, 23);
+    /* background-color: goldenrod; */
+    border:none;
+    outline:none;
+    display:inline-block;
+    height:34px;
+    vertical-align:middle;
+    position:relative;
+    bottom:14px;
+    right:9px;
+    border-radius:22px;
+    width:220px;
+    box-sizing:border-box;
+    padding:0 18px;
+    color: white;
+}
+
+input[type="button"]{ 
+    background:#501b1d ! important;
+    color:#fff;
+    position:relative;
+    left:9px;
+    top:25px; 
+    width:100px;
+    cursor:pointer;
+}
+
+.form-container h2{
+    font-family:"droid serif";
+    font-style:italic;
+    color:#501b1d; 
+    text-align:center;
+    font-size: 2.25vw;
+}
+.form-container h1{
+    text-align:center;
+    color:#501b1d; 
+    font-weight:100;
+    font-size:2em; 
+    margin-bottom:10px;
+  }
+
+::placeholder {
+    text-align: center;
+    color: white;
+}
+
+.name-div {
+    float: top;
+}
+
+.btn-div {
+    float: middle;
+}
+
+.image-div {
+    float: bottom;
+}

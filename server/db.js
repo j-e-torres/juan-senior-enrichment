@@ -9,16 +9,20 @@ const Campus = db.define('campus', {
     name: {
         type: Sequelize.STRING,
         allowNull: false,
-        notEmpty: true
+        validate: {
+            notEmpty: true
+        }
     },
     imageUrl: {
         type: Sequelize.TEXT,
-        defaultValue: null
+        defaultValue: 'defaultpic.png'
     },
     address: {
         type: Sequelize.STRING,
         allowNull: false,
-        notEmpty: true
+        validate: {
+            notEmpty: true
+        }
     },
     description: {
         type: Sequelize.TEXT,
@@ -29,22 +33,29 @@ const Student = db.define('student', {
     firstName: {
         type: Sequelize.STRING,
         allowNull: false,
-        notEmpty: true
+        validate: {
+            notEmpty: true
+        }
     },
     lastName: {
         type: Sequelize.STRING,
         allowNull: false,
-        notEmpty: true
+        validate: {
+            notEmpty: true
+        }
     },
     email: {
         type: Sequelize.TEXT,
         allowNull: false,
-        notEmpty: true,
-        isEmail: true
+        validate: {
+            notEmpty: true,
+            isEmail: true
+        }
+
     },
     imageUrl: {
         type: Sequelize.TEXT,
-        defaultValue: null
+        defaultValue: './public/defaultpic.png'
     },
     gpa: {
         type: Sequelize.FLOAT,

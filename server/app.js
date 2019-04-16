@@ -94,9 +94,15 @@ app.delete('/api/campuses/:id', (req, res, next) => {
 })
 
 //error
-app.use((err, req, res, next) => {
-    console.error(err.message);
+app.use((error, req, res, next)=> {
+    let errors = [error];
+    if ( error.errors){
+      errors = error.errors.map( err => err.message);
+    }
+    else if (error.original){
+      errors = [error.original.message];
+    }
 
-    res.status(err.status || 500)
-    res.send(err.message || 'Internal server error')
-})
+    console.error(errors);
+    res.status(error.status || 500).send({ errors });
+  });

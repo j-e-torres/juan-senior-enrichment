@@ -19,7 +19,7 @@ const Students = ({ students, deleteS }) => {
                             <button onClick={() => deleteS(student.id) } className="delete-btn" type="submit">X</button>
                         </div>
                             <br />
-                            <img width="75%" src={student.imageUrl} />
+                            <img height="50%" width="75%" src={student.imageUrl} />
                     </div>
                 )
             })

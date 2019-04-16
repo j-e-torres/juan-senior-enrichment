@@ -144,13 +144,6 @@ const newStudent = (stu) => {
     }
 }
 
-// const deleteStudentOrCampus = (id, campusOrStudent) => {
-//     return dispatch => {
-//         return axios.delete(`/api/${campusOrStudent}/${id}`)
-//             .then( () => console.log('deleted'))
-//     }
-// }
-
 const deleteStudent = (id) => {
     return dispatch => {
         return axios.delete(`/api/students/${id}`)

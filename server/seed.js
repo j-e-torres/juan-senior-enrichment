@@ -30,10 +30,10 @@ const campusesArr = [
         description: 'One of the headquarters of the Justice League on Earth, also serves as an tourist attraction sometimes.'
     },
     {
-        name: 'Titans Tower',
+        name: 'Titans Tower West',
         imageUrl: '/campuspics/Titans_Tower.png',
-        address: 'One Justice Plaza, Washington, D.C.',
-        description: 'One of the headquarters of the Justice League on Earth, also serves as an tourist attraction sometimes.'
+        address: 'One Titan Plaza, Jump City',
+        description: 'One of the headquarters of the Teen Titans on Earth, this tower holds team west.'
     },
 ];
 

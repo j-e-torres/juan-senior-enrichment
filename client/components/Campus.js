@@ -17,30 +17,35 @@ class Campus extends Component {
 
         return (
             <div>
-                <header>
-                    {campus.name}
-                    <br />
-                    <img src={campus.imageUrl} />
-                    <br />
-                    <em>{campus.address}</em>
-                    <br />
-                    {campus.description}
-                </header>
 
-                <ul>
+                    <div className="home-header" style={{marginBottom: '20px'}}>{campus.name}</div>
+
+                    <div className="home-about">
+                        <img src={campus.imageUrl} />
+                        <br />
+                        <em>{campus.address}</em>
+
+                        <div style={{marginBottom: '30px'}}>
+                            {campus.description}
+                        </div>
+                    </div>
+
+                <div className="list-campus-student">
                     {
                         students ? students.map( student => {
                             return (
-                                <li key={student.id}>
+                                <div className="list-item" key={student.id}>
                                     <Link to={`/students/${student.id}`}>
                                     {student.firstName} {student.lastName}
                                     </Link>
-                                </li>
+                                    <img width="75%" src={student.imageUrl} />
+                                </div>
+                                
                             )
                         }) : null
 
                     }
-                </ul>
+                </div>
             </div>
         )
     }

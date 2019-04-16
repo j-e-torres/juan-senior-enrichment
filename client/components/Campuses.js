@@ -12,10 +12,17 @@ const Campuses = ({ campuses, deleteC }) => {
             campuses.map( campus => {
                 return (
                     <div key={campus.id} className="list-item">
-                        <Link to={`/campuses/${campus.id}`}>{campus.name}</Link>
-                        <button onClick={() => deleteC(campus.id) } className="delete-btn" type="submit">X</button>
-                        <br />
-                        <img width="100%" src={campus.imageUrl} />
+                        <div className="name-div">
+                            <Link to={`/campuses/${campus.id}`}>{campus.name}</Link>
+                        </div>
+
+                        <div className="btn-div">
+                            <button onClick={() => deleteC(campus.id) } className="delete-btn" type="submit">X</button>
+                        </div>
+
+                        <div className="image-div">
+                            <img width="100%" src={campus.imageUrl} />
+                        </div>
                     </div>
                 )
             })

@@ -16,27 +16,36 @@ class Student extends Component {
         const { campus } = student;
 
         return (
-            <div>
-                <header>
+            <div className="list-campus-student">
+                <div className="list-item">
                     {student.firstName} {student.lastName}
                     <br />
-                    <img src={student.imageUrl} />
+                    <img width="75%" src={student.imageUrl} />
                     <br />
                     Email: {student.email}
                     <br />
                     GPA: {student.gpa}
-                </header>
+                    <br />
+                    {
+                        campus ?
+                        <Link to={`/campuses/${campus.id}`}>
+                        Campus: {campus.name}
+                        </Link>
 
-                <section>
+                        : null
+                    }
+                </div>
 
-                        {campus ?
-                            <Link to={`/campuses/${campus.id}`}>
-                            Campus: {campus.name}
-                            </Link>
+                {/* <div>
+                    {
+                        campus ?
+                        <Link to={`/campuses/${campus.id}`}>
+                        Campus: {campus.name}
+                        </Link>
 
-                            : null }
-
-                </section>
+                        : null
+                    }
+                </div> */}
             </div>
         )
     }

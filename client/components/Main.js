@@ -24,7 +24,7 @@ class Main extends Component {
         return (
             <Router>
                 <Fragment>
-                    <h1 className="main-header">Superhero University</h1>
+                    <h1 className="main-header">SUPERHERO UNIVERSITY</h1>
                     <Route component={ Nav } />
                     <Route exact path="/" component={ Home } />
 
