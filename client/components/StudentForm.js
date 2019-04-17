@@ -26,7 +26,7 @@ class StudentForm extends Component {
         const { history } = this.props
         this.props.newStudent(this.state)
             .then( () => history.push('/students'))
-            .catch( ex => ex.reponse.data.message )
+            .catch(ex => this.setState({ err: ex.response.data.errors }))
     }
     render() {
         const { firstName, lastName, gpa, imageUrl, email, err } = this.state;
@@ -38,15 +38,24 @@ class StudentForm extends Component {
                 <h1>Hero, Join Us</h1>
 
                 <form onSubmit={handleSubmit}>
+                {
+                    !!err.length && (
+                        <div className="err-list">
+                        {
+                            err.map( error => <div key={error}>{ error }</div>)
+                        }
+                        </div>
+                    )
+                 }
 
-                    {formInputCreator(firstName, handleChange, 'First Name')}
-                    {formInputCreator(lastName, handleChange, 'Last Name')}
-                    {formInputCreator(gpa, handleChange, 'GPA')}
-                    {formInputCreator(imageUrl, handleChange, 'Image URL')}
-                    {formInputCreator(email, handleChange, 'Email Address')}
+                    {formInputCreator('firstName', firstName, handleChange, 'First Name')}
+                    {formInputCreator('lastName', lastName, handleChange, 'Last Name')}
+                    {formInputCreator('gpa', gpa, handleChange, 'GPA')}
+                    {formInputCreator('imageUrl', imageUrl, handleChange, 'Image URL')}
+                    {formInputCreator('email', email, handleChange, 'Email Address')}
 
                     <div className="submit">
-                        <input onClick={handleSubmit} type="button" value="Submit" className="submit" />
+                        <input type="submit" value="Submit" className="submit" />
                     </div>
                 </form>
             </div>

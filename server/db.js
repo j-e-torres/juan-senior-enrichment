@@ -10,18 +10,18 @@ const Campus = db.define('campus', {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {args: [true], msg: 'Name cannot be emptyy'}
         }
     },
     imageUrl: {
         type: Sequelize.TEXT,
-        defaultValue: 'defaultpic.png'
+        defaultValue: null
     },
     address: {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {args: [true], msg: 'Address cannot be empty'}
         }
     },
     description: {
@@ -34,34 +34,34 @@ const Student = db.define('student', {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {args: [true], msg: 'First name cannot be empty'}
         }
     },
     lastName: {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {args: [true], msg: 'Last name cannot be empty'}
         }
     },
     email: {
         type: Sequelize.TEXT,
         allowNull: false,
         validate: {
-            notEmpty: true,
-            isEmail: true
+            notEmpty: {args: [true], msg: 'Email cannot be empty'},
+            isEmail: {args: [true], msg: 'Email must be a valid email'}
         }
 
     },
     imageUrl: {
         type: Sequelize.TEXT,
-        defaultValue: './public/defaultpic.png'
+        defaultValue: null
     },
     gpa: {
         type: Sequelize.FLOAT,
         validate: {
-            min: 0.0,
-            max: 4.0
+            min: {args: [0], msg: 'GPA must be between 0 and 4'},
+            max: {args: [4], msg: 'GPA must be between 0 and 4'}
         }
     }
 })

@@ -48,6 +48,8 @@ app.get('/api/students/:id', (req, res, next) => {
 
 //add one
 app.post('/api/campuses', (req, res, next) => {
+    console.log('POST to api/campuses: ', req.body);
+
     Campus.create({
         name: req.body.name,
         address: req.body.address,

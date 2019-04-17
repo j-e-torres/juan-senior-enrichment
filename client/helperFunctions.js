@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
 
-const formInputCreator = ( stateProp, onChangeProp, placeholder) => {
+const formInputCreator = ( stateProp, value, onChangeProp, placeholder, ) => {
     return (
         <Fragment>
         <span>
             <input
+                value={value}
                 type="text"
                 name={stateProp}
                 onChange={onChangeProp}

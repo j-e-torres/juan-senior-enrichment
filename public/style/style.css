@@ -175,7 +175,7 @@ input {
     color: white;
 }
 
-input[type="button"]{ 
+input[type="submit"]{ 
     background:#501b1d ! important;
     color:#fff;
     position:relative;
@@ -215,4 +215,8 @@ input[type="button"]{
 
 .image-div {
     float: bottom;
+}
+
+.err-list {
+    margin-bottom: 50px;
 }

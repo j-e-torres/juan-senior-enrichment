@@ -18,6 +18,8 @@ class CampusForm extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
     handleChange ({ target }){
+        // console.log('Field Name: ', target.name, 'Field Value: ', target.value)
+        // console.log('Current State of Campus Form: ', this.state);
         this.setState({[target.name]: target.value})
     }
     handleSubmit(ev) {
@@ -25,6 +27,7 @@ class CampusForm extends Component {
         const { history } = this.props
         this.props.newCampus(this.state)
             .then( () => history.push('/campuses'))
+            .catch(ex => this.setState({ err: ex.response.data.errors }))
     }
     render() {
         const {name, imageUrl, address, description, err } = this.state;
@@ -34,14 +37,23 @@ class CampusForm extends Component {
                 <h2>For the battle of Good</h2>
                 <h1>A new Campus awaits</h1>
                 <form onSubmit={handleSubmit}>
+                {
+                    !!err.length && (
+                        <div className="err-list">
+                        {
+                            err.map( error => <div key={error}>{ error }</div>)
+                        }
+                        </div>
+                    )
+                 }
 
-                    {formInputCreator(name, handleChange, 'Name')}
-                    {formInputCreator(imageUrl, handleChange, 'Image URL')}
-                    {formInputCreator(address, handleChange, 'Address')}
-                    {formInputCreator(description, handleChange, 'Description')}
+                    {formInputCreator('name', name, handleChange, 'Name')}
+                    {formInputCreator('imageUrl', imageUrl, handleChange, 'Image URL')}
+                    {formInputCreator('address', address, handleChange, 'Address')}
+                    {formInputCreator('description', description, handleChange, 'Description')}
 
                     <div className="submit">
-                        <input onClick={handleSubmit} type="button" value="Submit" className="submit" />
+                        <input type="submit" value="Submit" className="submit" />
                     </div>
 
                 </form>
