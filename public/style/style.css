@@ -205,18 +205,6 @@ input[type="submit"]{
     color: white;
 }
 
-.name-div {
-    float: top;
-}
-
-.btn-div {
-    float: middle;
-}
-
-.image-div {
-    float: bottom;
-}
-
 .err-list {
     margin-bottom: 50px;
 }

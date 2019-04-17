@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -17,18 +17,19 @@ class Campus extends Component {
 
         return (
             <div>
+                { Object.keys(campus).length ?
+                <Fragment>
+                <div className="home-header" style={{marginBottom: '20px'}}>{campus.name}</div>
 
-                    <div className="home-header" style={{marginBottom: '20px'}}>{campus.name}</div>
+                <div className="home-about">
+                    <img src={campus.imageUrl} />
+                    <br />
+                    <em>{campus.address}</em>
 
-                    <div className="home-about">
-                        <img src={campus.imageUrl} />
-                        <br />
-                        <em>{campus.address}</em>
-
-                        <div style={{marginBottom: '30px'}}>
-                            {campus.description}
-                        </div>
+                    <div style={{marginBottom: '30px'}}>
+                        {campus.description}
                     </div>
+                </div>
 
                 <div className="list-campus-student">
                     {
@@ -40,12 +41,13 @@ class Campus extends Component {
                                     </Link>
                                     <img width="75%" src={student.imageUrl} />
                                 </div>
-                                
                             )
                         }) : null
 
                     }
                 </div>
+                </Fragment> : <div style={{textAlign: 'center'}}>404, Error: No Campus found</div>
+                }
             </div>
         )
     }

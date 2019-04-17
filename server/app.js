@@ -34,7 +34,14 @@ app.get('/api/campuses/:id', (req, res, next) => {
     Campus.findByPk(req.params.id, {
         include: [Student]
     })
-    .then( data => res.send(data))
+    .then( data => {
+        if ( data ) {
+            res.send(data)
+        }
+        else {
+            res.sendStatus(404);
+        }
+    })
     .catch(next);
 })
 
@@ -42,7 +49,14 @@ app.get('/api/students/:id', (req, res, next) => {
     Student.findByPk(req.params.id, {
         include: [Campus]
     })
-    .then( data => res.send(data))
+    .then( data => {
+        if (data) {
+            res.send(data)
+        }
+        else {
+            res.sendStatus(404);
+        }
+    })
     .catch(next);
 })
 

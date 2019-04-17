@@ -15,8 +15,12 @@ class Student extends Component {
         const { student } = this.props;
         const { campus } = student;
 
+        console.log('here is student', student)
+
         return (
             <div className="list-campus-student">
+
+                { Object.keys(student).length ?
                 <div className="list-item">
                     {student.firstName} {student.lastName}
                     <br />
@@ -36,16 +40,10 @@ class Student extends Component {
                     }
                 </div>
 
-                {/* <div>
-                    {
-                        campus ?
-                        <Link to={`/campuses/${campus.id}`}>
-                        Campus: {campus.name}
-                        </Link>
-
-                        : null
-                    }
-                </div> */}
+                    :   <div>
+                            404, Error: Not student found
+                        </div>
+                }
             </div>
         )
     }

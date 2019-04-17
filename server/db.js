@@ -10,7 +10,7 @@ const Campus = db.define('campus', {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
-            notEmpty: {args: [true], msg: 'Name cannot be emptyy'}
+            notEmpty: {args: [true], msg: 'Name cannot be empty'}
         }
     },
     imageUrl: {

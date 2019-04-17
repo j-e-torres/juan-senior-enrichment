@@ -28,6 +28,7 @@ const getStudent = student => ({
     student
 })
 
+
 const addCampus = campus => ({
     type: ADD_CAMPUS,
     campus
@@ -152,7 +153,6 @@ const deleteStudent = (id) => {
 }
 
 const deleteCampus = (id) => {
-
     return dispatch => {
         return axios.delete(`/api/campuses/${id}`)
             .then( () => dispatch(seedCampuses()));
