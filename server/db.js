@@ -83,7 +83,7 @@ const syncAndSeed = () => {
                     firstName: 'Bruce',
                     lastName: 'Wayne',
                     email: 'batman@hallofjustice.com',
-                    imageUrl: '/heropics/Batman.jpg',
+                    imageUrl: '/heropics/batman.jpg',
                     gpa: 4.0,
                     campusId: 1
                 }),
