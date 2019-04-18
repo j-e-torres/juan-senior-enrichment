@@ -109,6 +109,14 @@ app.delete('/api/campuses/:id', (req, res, next) => {
     .catch(next)
 })
 
+//update one
+app.put('/api/students/:id', (req, res, next) => {
+    Student.findByPk(req.params.id)
+        .then( student => student.update(req.body))
+        .then( prod => res.send(prod))
+        .catch(next);
+})
+
 //error
 app.use((error, req, res, next)=> {
     let errors = [error];

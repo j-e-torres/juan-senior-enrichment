@@ -159,6 +159,12 @@ const deleteCampus = (id) => {
     }
 }
 
+const updateStudent = (id) => {
+    return dispatch => {
+        return axios.put(`/api/students/${id}`)
+            .then( () => dispatch(seedStudents()))
+    }
+}
 
 //store
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
@@ -173,5 +179,6 @@ export {
     newCampus,
     newStudent,
     deleteCampus,
-    deleteStudent
+    deleteStudent,
+    updateStudent
 }

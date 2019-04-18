@@ -15,8 +15,6 @@ class Student extends Component {
         const { student } = this.props;
         const { campus } = student;
 
-        console.log('here is student', student)
-
         return (
             <div className="list-campus-student">
 

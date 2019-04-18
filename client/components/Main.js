@@ -12,6 +12,7 @@ import CampusForm from './CampusForm';
 import Students from './Students';
 import Student from './Student';
 import StudentForm from './StudentForm';
+import StudentEditForm from './StudentEditForm';
 
 import { seedStudents, seedCampuses } from '../store';
 
@@ -31,10 +32,12 @@ class Main extends Component {
                     <Route exact path="/campuses" component={ Campuses } />
                     <Route exact path="/campuses/:id" component={ Campus } />
                     <Route exact path="/createCampus" component={ CampusForm } />
+                    {/* <Route exact path="/createCampus/:id" component={ CampusForm } /> */}
 
                     <Route exact path="/students" component={ Students } />
                     <Route exact path="/students/:id" component={ Student } />
                     <Route exact path="/createStudent" component={ StudentForm } />
+                    <Route exact path="/editStudent/:id" component={ StudentEditForm } />
                 </Fragment>
             </Router>
         )
