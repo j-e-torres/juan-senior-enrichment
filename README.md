@@ -3,4 +3,4 @@
 - npm run start:dev
 
 # heroku
-- empty
+- https://juan-senior-enrichment.herokuapp.com/#/
